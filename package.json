@@ -1,0 +1,23 @@
+{
+  "name": "dynamodb-dao",
+  "version": "0.0.1",
+  "description": "DynamoDB data access object",
+  "keywords": ["dynamodb","dao"],
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "https://github.com/anrim/dynamodb-dao.git",
+  "author": "anrim",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "~0.9.7-pre.8",
+    "vow": "~0.3.0"
+  },
+  "devDependencies": {
+    "should": "~1.2.2"
+  },
+  "engines": {
+    "node": "0.8.*"
+  }
+}
