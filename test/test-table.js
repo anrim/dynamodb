@@ -1,5 +1,10 @@
+var assert = require('assert');
 var should = require("should");
 var DynamoDB = require('../index');
+
+function error (err) {
+  console.error(err);
+}
 
 describe('DynamoTable', function () {
   var db;
@@ -41,6 +46,18 @@ describe('DynamoTable', function () {
   });
   
   describe('#put', function () {
+    it.skip('should throw error if prop not in schema', function (done) {
+      function fn (err) {}
+      
+      db.table("test-dynamo")
+        .put({
+          id: "array2",
+          propnotexist: {}
+        }, fn);
+        
+        fn.should.throw();
+    });
+      
     it('should put item with String', function (done) {
       db.table("test-dynamo")
         .put({id: "string", string: "String"})
@@ -86,6 +103,25 @@ describe('DynamoTable', function () {
         .put({id: "object", object: {key: "value"}})
         .then(function () {
           done();
+        });
+    });
+    
+    it('should put array with objects', function (done) {
+      db.table("test-dynamo")
+        .put({
+          id: "array2",
+          list: [
+            {image: "url1"},
+            {image: "url2"}
+          ]
+        })
+        .then(function () {
+          db.table("test-dynamo").get({id: "array2"}).then(function (obj) {
+            obj.list.should.be.an.instanceOf(Array);
+            obj.list[0].should.be.a('object');
+            obj.list[0].should.have.ownProperty('image');
+            done();
+          });
         });
     });
   });
