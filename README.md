@@ -93,11 +93,17 @@ Get data by key(hash + [range]). Returns promise.
     });
 
 ###Update item
-####table.update(key, data)
+####table.update(key, data, options)
 Updates data by key (hash + [range]). Returns promise.
+
+**options**
+
+* getAfterUpdate - boolean default false
+
+.
 	
-	// Update
-    users.update({id: "1"}, {name: "Andy"})
+	// Update item
+	users.update({id: "1"}, {name: "Andy"})
     .then(function (obj) {
     	console.log('updated user with', obj);
     }, function (err) {

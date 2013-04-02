@@ -136,6 +136,16 @@ describe('DynamoTable', function () {
         });
     });
     
+    it('should throw error if key is missing', function (done) {
+      var fn = function(){};
+      db.table("test-dynamo")
+        .get({name: "1"})
+        .then(null, function (err) {
+          should.exist(err);
+          done();
+        });
+    });
+    
     it('should get item String', function (done) {
       db.table("test-dynamo")
         .get({id: "string"})
@@ -204,7 +214,7 @@ describe('DynamoTable', function () {
     
     it('should update and get item', function (done) {
       db.table("test-dynamo")
-        .update({id: "string"}, {string: "string2"}, {get: true})
+        .update({id: "string"}, {string: "string2"}, {getAfterUpdate: true})
         .then(function (obj) {
           obj.should.have.property("string", "string2");
           done();
