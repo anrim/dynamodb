@@ -28,8 +28,8 @@ describe('DynamoTable', function () {
   describe('#key', function () {
     it('should return hash key', function () {
       var key = db.table("test-dynamo").createKey({id: "1"});
-      key.should.have.property("HashKeyElement");
-      key.HashKeyElement.should.eql({S: "1"});
+      key.should.have.property("id");
+      key.id.should.eql({S: "1"});
     });
     
     it.skip('should return hash & range key', function () {
@@ -40,8 +40,8 @@ describe('DynamoTable', function () {
         
       var date = new Date();
       var key = table.createKey({id: "1", date: date});
-      key.should.have.property("RangeKeyElement");
-      key.HashKeyElement.should.eql({N: date.getTime()});
+      key.should.have.property("date");
+      key.date.should.eql({N: date.getTime()});
     });
   });
   

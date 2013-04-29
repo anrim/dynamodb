@@ -1,6 +1,6 @@
 {
   "name": "anrim-dynamodb",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "DynamoDB data access object",
   "keywords": [
     "dynamodb",
@@ -14,7 +14,7 @@
   "author": "anrim",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "~0.9.7-pre.8",
+    "aws-sdk": "~0.9.8-pre.9",
     "vow": "~0.3.0",
     "array.js": "~0.2.0"
   },
