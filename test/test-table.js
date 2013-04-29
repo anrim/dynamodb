@@ -220,6 +220,16 @@ describe('DynamoTable', function () {
           done();
         });
     });
+    
+    it('should not update empty array', function (done) {
+      db.table("test-dynamo")
+        .update({id: "string"}, {array: []}, {getAfterUpdate: true})
+        .then(function (obj) {
+          obj.should.not.have.property("array");
+          done();
+        })
+        .done();
+    });
   });
   
   describe("#delete", function () {

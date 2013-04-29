@@ -1,5 +1,5 @@
 {
-  "name": "dynamodb-dao",
+  "name": "anrim-dynamodb",
   "version": "0.0.1",
   "description": "DynamoDB data access object",
   "keywords": [
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": "https://github.com/anrim/dynamodb-dao.git",
+  "repository": "https://github.com/anrim/dynamodb.git",
   "author": "anrim",
   "license": "MIT",
   "dependencies": {
