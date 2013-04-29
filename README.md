@@ -28,7 +28,7 @@ A simple [data access object](http://en.wikipedia.org/wiki/Data_access_object) f
 
 ##Installation
 
-	npm install dynamodb-dao
+	npm install anrim-dynamodb
 
 ##API
 
